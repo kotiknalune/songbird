@@ -2,7 +2,7 @@
 
 Одностраничное приложение - тест распознавания птиц по голосам
 
- - [View project assets](https://github.com/kotiknalune/songbird/songbird/PROJECT.md)
+ - [View project assets](https://github.com/kotiknalune/songbird/blob/songbird/PROJECT.md)
  - [View current demo]()
  
 ## Структура приложения
