@@ -2,6 +2,9 @@
 
 Одностраничное приложение - тест распознавания птиц по голосам
 
+ - [View project assets](https://github.com/kotiknalune/songbird/songbird/PROJECT.md)
+ - [View current demo]()
+ 
 ## Структура приложения
 
 Игровое поле викторины состоит из четырёх блоков:
