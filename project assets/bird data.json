@@ -1,0 +1,212 @@
+[
+  {
+    "name": "city",
+    "birds": [
+      {
+        "id": 1,
+        "name": "Sparrow",
+        "full_name": "House sparrow"
+      },
+      {
+        "id": 2,
+        "name": "Crow",
+        "full_name": "Hooded crow"
+      },
+      {
+        "id": 3,
+        "name": "Pigeon",
+        "full_name": "Domestic pigeon"
+      },
+      {
+        "id": 4,
+        "name": "Starling",
+        "full_name": "Common starling"
+      },
+      {
+        "id": 5,
+        "name": "Magpie",
+        "full_name": "Magpie"
+      },
+      {
+        "id": 6,
+        "name": "Tit",
+        "full_name": "Great tit"
+      }
+    ]
+  },
+  {
+    "name": "forest",
+    "birds": [
+      {
+        "id": 1,
+        "name": "Woodpecker",
+        "full_name": "Woodpecker"
+      },
+      {
+        "id": 2,
+        "name": "Crossbill",
+        "full_name": "Red crossbill"
+      },
+      {
+        "id": 3,
+        "name": "Goldfinch",
+        "full_name": "European goldfinch"
+      },
+      {
+        "id": 4,
+        "name": "Warbler",
+        "full_name": "Grey warbler"
+      },
+      {
+        "id": 5,
+        "name": "Nightingale",
+        "full_name": "Common nightingale"
+      },
+      {
+        "id": 6,
+        "name": "Siskin",
+        "full_name": "Eurasian Siskin"
+      }
+    ]
+  },
+  {
+    "name": "water",
+    "birds": [
+      {
+        "id": 1,
+        "name": "Swan",
+        "full_name": "Swan"
+      },
+      {
+        "id": 2,
+        "name": "Pelican",
+        "full_name": "Pelican"
+      },
+      {
+        "id": 3,
+        "name": "Gull",
+        "full_name": "Gull"
+      },
+      {
+        "id": 4,
+        "name": "Penguin",
+        "full_name": "Macaroni penguin"
+      },
+      {
+        "id": 5,
+        "name": "Heron",
+        "full_name": "Grey heron"
+      },
+      {
+        "id": 6,
+        "name": "Flamingo",
+        "full_name": "American flamingo"
+      }
+    ]
+  },
+  {
+    "name": "prey",
+    "birds": [
+      {
+        "id": 1,
+        "name": "Eagle",
+        "full_name": "Eagle"
+      },
+      {
+        "id": 2,
+        "name": "Hawk",
+        "full_name": "Sharp-shinned hawk"
+      },
+      {
+        "id": 3,
+        "name": "Owl",
+        "full_name": "Great horned owl"
+      },
+      {
+        "id": 4,
+        "name": "Falcon",
+        "full_name": "Peregrine falcon"
+      },
+      {
+        "id": 5,
+        "name": "Vulture",
+        "full_name": "Turkey Vulture"
+      },
+      {
+        "id": 6,
+        "name": "Harrier",
+        "full_name": "Northern harrier"
+      }
+    ]
+  },
+  {
+    "name": "song",
+    "birds": [
+      {
+        "id": 1,
+        "name": "Canary",
+        "full_name": "Domestic canary"
+      },
+      {
+        "id": 2,
+        "name": "Bluebird",
+        "full_name": "Eastern bluebird"
+      },
+      {
+        "id": 3,
+        "name": "Thrush",
+        "full_name": "Song thrush"
+      },
+      {
+        "id": 4,
+        "name": "Skylark",
+        "full_name": "Eurasian skylark"
+      },
+      {
+        "id": 5,
+        "name": "Oriole",
+        "full_name": "Baltimore oriole"
+      },
+      {
+        "id": 6,
+        "name": "Chaffinch",
+        "full_name": "Common chaffinch"
+      }
+    ]
+  },
+  {
+    "name": "exotic",
+    "birds": [
+      {
+        "id": 1,
+        "name": "Toucan",
+        "full_name": "Toco toucan"
+      },
+      {
+        "id": 2,
+        "name": "Lorikeet",
+        "full_name": "Rainbow lorikeet"
+      },
+      {
+        "id": 3,
+        "name": "Cockatoo",
+        "full_name": "White cockatoo"
+      },
+      {
+        "id": 4,
+        "name": "Peacock",
+        "full_name": "Indian peafowl"
+      },
+      {
+        "id": 5,
+        "name": "Ostrich",
+        "full_name": "Common ostrich"
+      },
+      {
+        "id": 6,
+        "name": "Hummingbird",
+        "full_name": "Hummingbird"
+      }
+    ]
+  }
+]
