@@ -1,38 +1,70 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Levels.sass';
 
-type levelItemType = {
+type levelItemProps = {
   level: number,
-  selected?: boolean
+  selected?: boolean,
 }
 
-// const isActive: boolean = false;
-
-const LevelItem = ({level, selected = false } : levelItemType) => {
-  const levelStyle = { color: selected ? 'red' : 'white' };
-  return (<span style = { levelStyle }>{ level + 1 }</span>);
+type levelsProps = {
+  levels: number
 }
 
-const Levels = ({levels} : {levels: number}) => {
-  const levelElements = [...Array(levels).keys()].map((i) => {
-    const divider : string = (i  + 1) === levels ? 'none' : 'level-divider';
-    
-    return (
-    <li key = {`lvl-${i}`} className = 'level-list__item'>
-      <LevelItem level = {i} />
-      <div className = {divider}></div>
-    </li>);
-  });
+type levelsState = {
+  activeLevel: number
+}
 
-  // levelElements[0].props.className = 'level-list__item selected';
+class LevelItem extends Component<levelItemProps> {
+  // onItemHover = (event: { target: {} }) => {
+  //   const target : {} = event.target;
+  //   console.log(target);
+  // };
 
-  return (
-    <div>
-      <ul className = 'level-list'>
-        { levelElements }
-      </ul>
-    </div>
-  );
+  // onMouseEnter = { this.onItemHover } 
+ 
+  render() {
+    const {level, selected = false } = this.props;
+    return (<span>{ level + 1 }</span>);
+  }
 };
 
-  export default Levels;
+export default class Levels extends Component<levelsProps, levelsState> {
+  state = {
+    activeLevel: 1
+  }
+
+  //this.setState({ activeLevel++ });
+
+  render(){
+    const {levels} = this.props;
+    const { activeLevel } = this.state;
+    
+    const levelElements = [...Array(levels).keys()].map((index) => { 
+      const lvl: number = index + 1;
+      let dividerClassName: string = '';
+      let itemClassName: string = 'level-list__item';
+
+      if (activeLevel === lvl) {
+        dividerClassName += ' active ';
+        itemClassName += ' active ';
+      }
+
+      dividerClassName += (lvl === levels) ? 'none' : 'level-divider';
+        
+      return (
+        <li key = {`lvl-${index}`} className = { itemClassName }>
+          <LevelItem level = {index} />
+          <div className = {dividerClassName}></div>
+        </li>);
+    });
+    
+    return(
+      <div>
+        <ul className = 'level-list'>
+          { levelElements }
+        </ul>
+      </div>
+    );
+    
+  }
+};

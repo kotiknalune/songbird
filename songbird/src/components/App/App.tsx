@@ -1,4 +1,5 @@
 import React from 'react';
+import { appConfig as config } from '../../config/appConfig';
 
 import Levels from '../Levels/Levels';
 import Score from '../Score/Score';
@@ -27,12 +28,10 @@ function App() {
 // const empty = <span>Not showing date</span>;
  // App > { isShown ? date : empty }
 
-  const gameLevels: number = 6;
-
   return (
     <div className = 'app'>
       <Header />
-      <Levels levels = {gameLevels} />
+      <Levels levels = {config.levels} />
       <Main />
     </div>
   );
