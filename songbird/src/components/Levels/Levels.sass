@@ -1,0 +1,36 @@
+.level-list
+    list-style: none
+    display: flex
+    justify-content: space-between
+    margin: 0
+    padding: 0
+    
+    & .level-list__item
+        height: 40px
+        width: 40px
+        border-radius: 50%
+        margin: 10px
+        cursor: pointer
+        z-index: 2
+        background: transparent
+        border: 2px solid white
+
+        &.selected
+            background: #86ffff
+            box-shadow: 0px 0px 15px 1px cyan
+
+        & span
+            display: block
+            font-size: 20px
+            line-height: 40px
+            text-align: center
+
+.level-divider
+    position: relative
+    height: 2px
+    background: white
+    width: 347%
+    left: 100%
+    top: -50%
+
+
