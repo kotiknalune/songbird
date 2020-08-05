@@ -3,6 +3,7 @@ import { appConfig as config } from '../../config/appConfig';
 
 import Levels from '../Levels/Levels';
 import Score from '../Score/Score';
+import Main from '../Main/Main';
 
 import './App.sass';
 
@@ -11,13 +12,6 @@ const Header = () => {
     <div className = 'header'>
       <h1>Tweety</h1>
       <Score />
-    </div>
-  )
-};
-
-const Main = () => {
-  return(
-    <div className = 'main'>
     </div>
   )
 };

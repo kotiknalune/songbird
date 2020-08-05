@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "city",
     "birds": [
       {
@@ -35,6 +36,7 @@
     ]
   },
   {
+    "id": 2,
     "name": "forest",
     "birds": [
       {
@@ -70,6 +72,7 @@
     ]
   },
   {
+    "id": 3,
     "name": "water",
     "birds": [
       {
@@ -105,6 +108,7 @@
     ]
   },
   {
+    "id": 4,
     "name": "prey",
     "birds": [
       {
@@ -140,6 +144,7 @@
     ]
   },
   {
+    "id": 5,
     "name": "song",
     "birds": [
       {
@@ -175,6 +180,7 @@
     ]
   },
   {
+    "id": 6,
     "name": "exotic",
     "birds": [
       {

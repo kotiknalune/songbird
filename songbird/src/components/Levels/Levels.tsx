@@ -23,7 +23,7 @@ class LevelItem extends Component<levelItemProps> {
   // onMouseEnter = { this.onItemHover } 
  
   render() {
-    const {level, selected = false } = this.props;
+    const {level} = this.props;
     return (<span>{ level + 1 }</span>);
   }
 };
