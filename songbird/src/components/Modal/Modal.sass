@@ -1,0 +1,38 @@
+.start-game
+    background: url('../../theme/bg.png') no-repeat center
+    background-size: cover
+    position: absolute
+    height: 100%
+    width: 100%
+    top: 0
+    left: 0
+    z-index: 99
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    & img
+        max-width: 150px
+        position: absolute
+        left: 0
+        bottom: 0
+
+.start-game__title
+    font-family: 'Damion', sans-serif
+    font-size: 120px
+    line-height: 1.2
+    text-shadow: 6px 5px 0px #3F51B5
+
+.start-game__play-button
+    background: #3F51B5
+    color: white
+    border: 1px solid black
+    box-shadow: 5px 5px #2a3366
+    font-size: 21px
+    transition: 0.5s ease all
+
+    &:hover
+        background: #09aabe
+        box-shadow: 5px 5px #136772
+        

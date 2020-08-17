@@ -1,40 +1,41 @@
 .level-list
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+    list-style: none
+    display: flex
+    justify-content: center
+    margin: 0
+    padding: 0
     
     & .level-list__item
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-        margin: 10px;
-        cursor: pointer;
-        z-index: 2;
-        background: transparent;
-        border: 4px solid white;
+        height: 35px
+        width: 35px
+        margin: 10px
+        cursor: pointer
+        z-index: 2
+        background:#00000020
+        box-shadow: 1px 1px 0px 1px #202c6e
+        border: 1px solid black
 
         &.active
-            border: 5px solid #3F51B5;
+            background: #3F51B5
+            box-shadow: 1px 1px 0px 1px #00000080 inset
 
         & span
             display: block
-            font-size: 16px
-            line-height: 30px
+            font-size: 20px
+            line-height: 1.85
             text-align: center
 
 .level-container
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 100%
 
 .level-name
-    font-size: 45px;
-    font-family: 'Damion', sans-serif;
-    background: #3f51b5;
-    height: 13px;
-    line-height: 14px;
-    width: 25%;
-    text-align: right;
+    font-size: 45px
+    font-family: 'Damion', sans-serif
+    background: #3f51b5
+    height: 13px
+    line-height: 14px
+    width: 25%
+    text-align: right

@@ -1,5 +1,6 @@
 export const appConfig = {
     levels: 6,
+    initLevel: 1,
     classes: {
         default_container: 'container',
         question_block: 'question-block',

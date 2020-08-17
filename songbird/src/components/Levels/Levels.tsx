@@ -16,19 +16,20 @@ type levelsProps = {
 class LevelItem extends Component<levelItemProps> {
   render() {
     const {level} = this.props;
-    return (<span>{ level + 1 }</span>);
+    return (<span>{ level }</span>);
   }
 };
 
 export default class Levels extends Component<levelsProps> {
   render(){
     const { levels, currentLevel} = this.props;
+    const currentIndex = currentLevel - 1;
     
     const levelElements = [...Array(levels).keys()].map((index) => { 
-      const lvl: number = index + 1;
+      const lvl: number = index++;
      
       let itemClassName: string = 'level-list__item';
-      if (currentLevel + 1 === lvl) itemClassName += ' active ';
+      if (currentIndex === lvl) itemClassName += ' active ';
 
       return (
         <li key = {`lvl-${index}`} className = { itemClassName }>
@@ -41,7 +42,7 @@ export default class Levels extends Component<levelsProps> {
         <ul className = 'level-list'>
           { levelElements }
         </ul>
-        <h2 className = 'level-name'>{ QUIZ_DATA[currentLevel].name }</h2>
+        <h2 className = 'level-name'>{ QUIZ_DATA[currentIndex].name }</h2>
       </div>
     );
     

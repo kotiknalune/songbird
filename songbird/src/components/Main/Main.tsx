@@ -1,23 +1,24 @@
 import React, { Component } from 'react'
 import'../Main/Main.sass';
 
+import QUIZ_DATA from '../../context/quizData.json';
+
 import QuestionBlock from '../QuestionBlock/QuestionBlock';
 import QuizBlock from '../QuizBlock/QuizBlock';
 import InfoBlock from '../InfoBlock/InfoBlock';
-import APIService from '../../services/APIService';
-import { quizItemProps, appConfig } from '../../config/appConfig';
-import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
-
-import QUIZ_DATA from '../../context/quizData.json';
 import Button from '../Button/Button';
 
+import APIService from '../../services/APIService';
+
+import { appConfig } from '../../config/appConfig';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { pickRandomCorrectAnswer } from '../../utilities/dataManager';
 
 const DEFAULT_SOURCE = '#';
 
 interface mainProps {
     currentLevel: number,
-    answer: quizItemProps
+    onChange: any
 }
 
 export default class Main extends Component<mainProps> {
@@ -28,7 +29,7 @@ export default class Main extends Component<mainProps> {
         hasError: false,
         errorType: null,
         hasAnswered: true,
-        answer: this.props.answer,
+        answer: pickRandomCorrectAnswer(this.props.currentLevel),
         summary: null,
         link: undefined,
         image: null,
@@ -39,6 +40,7 @@ export default class Main extends Component<mainProps> {
 
     componentDidMount() {
         this.updateQuiz();
+        console.log(`Correct answer for Level ${this.state.currentLevel}: ${this.state.answer.name.common}`);
     }
 
     onContentLoaded() {
@@ -90,7 +92,6 @@ export default class Main extends Component<mainProps> {
 
                 this.setState({
                     isLoading: false,
-                    answer: this.props.answer,
                     summary: quizData.summary,
                     link: quizData.link,
                     image: quizData.image,
@@ -104,7 +105,7 @@ export default class Main extends Component<mainProps> {
     nextLevel = () => {
         const { currentLevel } = this.state;
 
-        if (currentLevel + 1 < appConfig.levels) {
+        if (currentLevel < appConfig.levels) {
             const nextLevel = currentLevel + 1;
             const newAnswer = pickRandomCorrectAnswer(nextLevel);
     
@@ -112,6 +113,8 @@ export default class Main extends Component<mainProps> {
                 currentLevel: nextLevel,
                 answer: newAnswer
             }); 
+
+            this.props.onChange();
         }
     }
 
@@ -127,7 +130,7 @@ export default class Main extends Component<mainProps> {
                     image = {image} 
                     audio = {audio} 
                     answer = {answer}/>
-                <QuizBlock currentLevel = { currentLevel } levelData = { QUIZ_DATA[this.state.currentLevel].birds } correctAnswer = { answer?.name.common }/>
+                <QuizBlock currentLevel = { currentLevel } levelData = { QUIZ_DATA[currentLevel - 1].birds } correctAnswer = { answer?.name.common }/>
                 <InfoBlock 
                     isLoading = { isLoading }
                     hasAnswered = {hasAnswered }

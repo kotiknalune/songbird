@@ -4,28 +4,31 @@ import { appConfig as config } from '../../config/appConfig';
 import Levels from '../Levels/Levels';
 import Score from '../Score/Score';
 import Main from '../Main/Main';
+import Modal from '../Modal/Modal';
 
 import './App.sass';
-import { pickRandomCorrectAnswer } from '../../utilities/dataManager';
 
 export default class App extends Component {
-  componentDidMount() {
-    this.updateApp();
-  }
-
   state = {
     currentScore: 0,
-    maxLevelScore: 5,
-    currentLevel: 0,
+    maxLevelScore: config.levels,
+    currentLevel: config.initLevel,
+    showStartGame: true
   }
 
-  answer = pickRandomCorrectAnswer(this.state.currentLevel);
-
-  updateApp() {
-    // this.answer = pickRandomCorrectAnswer(this.state.currentLevel);
-    console.log(`Correct answer for Level ${this.state.currentLevel + 1}: ${this.answer.name.common}`);
+  handleNextLevel = () => {
+    this.setState({
+      currentLevel: this.state.currentLevel + 1
+    })
   }
 
+  closeStartGame = () => {
+    console.log('close modal');
+    this.setState({
+      showStartGame: !this.state.showStartGame
+    });
+
+  }
   render() {
       return (
         <div className = 'app'>   
@@ -36,7 +39,8 @@ export default class App extends Component {
           <div className = 'subheader'>
             <Levels levels = { config.levels } currentLevel = { this.state.currentLevel } /> 
           </div>
-          <Main currentLevel = { this.state.currentLevel } answer = { this.answer }/>
+          <Main currentLevel = { this.state.currentLevel } onChange = { this.handleNextLevel }/>
+          <Modal show = { this.state.showStartGame } onClose = { this.closeStartGame }/>
         </div>
       );
   }
