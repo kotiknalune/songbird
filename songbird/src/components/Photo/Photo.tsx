@@ -1,19 +1,23 @@
 import React, { Component } from 'react'
 import './Photo.sass'
 
+import defaultPhoto from './default_bird.png'
+
 interface photoProps {
-    url : string,
-    alt: string
+    showContent: boolean
+    url : string | null,
+    type: string
 }
 
 export default class Photo extends Component<photoProps> {
     render() {
-        const { url, alt } = this.props;
+        const { url, type, showContent } = this.props;
         return (
-            <img 
-                className = 'photo' 
-                alt = { alt } 
-                src = { url } />    
+            <div 
+                className = {`photo ${type}`}
+                style = { showContent ? { backgroundImage: `url(${url})`} : { backgroundImage: `url(${defaultPhoto})`}}
+            ></div>  
         )
     }
 }
+ 

@@ -1,218 +1,326 @@
 [
   {
-    "id": 1,
-    "name": "city",
-    "birds": [
-      {
-        "id": 1,
-        "name": "Sparrow",
-        "full_name": "House sparrow"
-      },
-      {
-        "id": 2,
-        "name": "Crow",
-        "full_name": "Hooded crow"
-      },
-      {
-        "id": 3,
-        "name": "Pigeon",
-        "full_name": "Domestic pigeon"
-      },
-      {
-        "id": 4,
-        "name": "Starling",
-        "full_name": "Common starling"
-      },
-      {
-        "id": 5,
-        "name": "Magpie",
-        "full_name": "Magpie"
-      },
-      {
-        "id": 6,
-        "name": "Tit",
-        "full_name": "Great tit"
-      }
-    ]
+     "id":1,
+     "name":"City Birds",
+     "birds":[
+        {
+           "id":1,
+           "name":{
+              "common":"Sparrow",
+              "full":"House sparrow",
+              "scientific":"Passer domesticus"
+           }
+        },
+        {
+           "id":2,
+           "name":{
+              "common":"Crow",
+              "full":"Northwestern Crow",
+              "scientific":"Corvus brachyrhynchos caurinus"
+           }
+        },
+        {
+           "id":3,
+           "name":{
+              "common":"Pigeon",
+              "full":"Rock pigeon",
+              "scientific":"Columba livia"
+           }
+        },
+        {
+           "id":4,
+           "name":{
+              "common":"Starling",
+              "full":"Common starling",
+              "scientific":"Sturnus vulgaris"
+           }
+        },
+        {
+           "id":5,
+           "name":{
+              "common":"Magpie",
+              "full":"Eurasian magpie",
+              "scientific":"Pica pica"
+           }
+        },
+        {
+           "id":6,
+           "name":{
+              "common":"Tit",
+              "full":"Great tit",
+              "scientific":"Parus major"
+           }
+        }
+     ]
   },
   {
-    "id": 2,
-    "name": "forest",
-    "birds": [
-      {
-        "id": 1,
-        "name": "Woodpecker",
-        "full_name": "Woodpecker"
-      },
-      {
-        "id": 2,
-        "name": "Crossbill",
-        "full_name": "Red crossbill"
-      },
-      {
-        "id": 3,
-        "name": "Goldfinch",
-        "full_name": "European goldfinch"
-      },
-      {
-        "id": 4,
-        "name": "Warbler",
-        "full_name": "Grey warbler"
-      },
-      {
-        "id": 5,
-        "name": "Nightingale",
-        "full_name": "Common nightingale"
-      },
-      {
-        "id": 6,
-        "name": "Siskin",
-        "full_name": "Eurasian Siskin"
-      }
-    ]
+     "id":2,
+     "name":"Forest Birds",
+     "birds":[
+        {
+           "id":1,
+           "name":{
+              "common":"Woodpecker",
+              "full":"Pileated woodpecker",
+              "scientific":"Dryocopus pileatus"
+           }
+        },
+        {
+           "id":2,
+           "name":{
+              "common":"Crossbill",
+              "full":"Red crossbill",
+              "scientific":"Loxia curvirostra"
+           }
+        },
+        {
+           "id":3,
+           "name":{
+              "common":"Goldfinch",
+              "full":"European goldfinch",
+              "scientific":"Carduelis carduelis"
+           }
+        },
+        {
+           "id":4,
+           "name":{
+              "common":"Warbler",
+              "full":"Grey warbler",
+              "scientific":"Gerygone igata"
+           }
+        },
+        {
+           "id":5,
+           "name":{
+              "common":"Nightingale",
+              "full":"Common nightingale",
+              "scientific":"Luscinia megarhynchos"
+           }
+        },
+        {
+           "id":6,
+           "name":{
+              "common":"Siskin",
+              "full":"Eurasian Siskin",
+              "scientific":"Spinus spinus"
+           }
+        }
+     ]
   },
   {
-    "id": 3,
-    "name": "water",
-    "birds": [
-      {
-        "id": 1,
-        "name": "Swan",
-        "full_name": "Swan"
-      },
-      {
-        "id": 2,
-        "name": "Pelican",
-        "full_name": "Pelican"
-      },
-      {
-        "id": 3,
-        "name": "Gull",
-        "full_name": "Gull"
-      },
-      {
-        "id": 4,
-        "name": "Penguin",
-        "full_name": "Macaroni penguin"
-      },
-      {
-        "id": 5,
-        "name": "Heron",
-        "full_name": "Grey heron"
-      },
-      {
-        "id": 6,
-        "name": "Flamingo",
-        "full_name": "American flamingo"
-      }
-    ]
+     "id":3,
+     "name":"Water Birds",
+     "birds":[
+        {
+           "id":1,
+           "name":{
+              "common":"Swan",
+              "full":"Mute Swan",
+              "scientific":"Cygnus olor"
+           }
+        },
+        {
+           "id":2,
+           "name":{
+              "common":"Pelican",
+              "full":"Great white pelican",
+              "scientific":"Pelecanus onocrotalus"
+           }
+        },
+        {
+           "id":3,
+           "name":{
+              "common":"Gull",
+              "full":"Ring-billed gull",
+              "scientific":"Larus delawarensis"
+           }
+        },
+        {
+           "id":4,
+           "name":{
+              "common":"Penguin",
+              "full":"Macaroni penguin",
+              "scientific":"Eudyptes chrysolophus"
+           }
+        },
+        {
+           "id":5,
+           "name":{
+              "common":"Heron",
+              "full":"Grey heron",
+              "scientific":"Ardea cinerea"
+           }
+        },
+        {
+           "id":6,
+           "name":{
+              "common":"Flamingo",
+              "full":"American flamingo",
+              "scientific":"Phoenicopterus ruber"
+           }
+        }
+     ]
   },
   {
-    "id": 4,
-    "name": "prey",
-    "birds": [
-      {
-        "id": 1,
-        "name": "Eagle",
-        "full_name": "Eagle"
-      },
-      {
-        "id": 2,
-        "name": "Hawk",
-        "full_name": "Sharp-shinned hawk"
-      },
-      {
-        "id": 3,
-        "name": "Owl",
-        "full_name": "Great horned owl"
-      },
-      {
-        "id": 4,
-        "name": "Falcon",
-        "full_name": "Peregrine falcon"
-      },
-      {
-        "id": 5,
-        "name": "Vulture",
-        "full_name": "Turkey Vulture"
-      },
-      {
-        "id": 6,
-        "name": "Harrier",
-        "full_name": "Northern harrier"
-      }
-    ]
+     "id":4,
+     "name":"Birds of Prey",
+     "birds":[
+        {
+           "id":1,
+           "name":{
+              "common":"Eagle",
+              "full":"Bald eagle",
+              "scientific":"Haliaeetus leucocephalus"
+           }
+        },
+        {
+           "id":2,
+           "name":{
+              "common":"Hawk",
+              "full":"Sharp-shinned hawk",
+              "scientific":"Accipiter striatus"
+           }
+        },
+        {
+           "id":3,
+           "name":{
+              "common":"Owl",
+              "full":"Great horned owl",
+              "scientific":"Bubo virginianus"
+           }
+        },
+        {
+           "id":4,
+           "name":{
+              "common":"Falcon",
+              "full":"Peregrine falcon",
+              "scientific":"Falco peregrinus"
+           }
+        },
+        {
+           "id":5,
+           "name":{
+              "common":"Vulture",
+              "full":"Turkey Vulture",
+              "scientific":"Cathartes aura"
+           }
+        },
+        {
+           "id":6,
+           "name":{
+              "common":"Harrier",
+              "full":"Northern harrier",
+              "scientific":"Circus hudsonius"
+           }
+        }
+     ]
   },
   {
-    "id": 5,
-    "name": "song",
-    "birds": [
-      {
-        "id": 1,
-        "name": "Canary",
-        "full_name": "Domestic canary"
-      },
-      {
-        "id": 2,
-        "name": "Bluebird",
-        "full_name": "Eastern bluebird"
-      },
-      {
-        "id": 3,
-        "name": "Thrush",
-        "full_name": "Song thrush"
-      },
-      {
-        "id": 4,
-        "name": "Skylark",
-        "full_name": "Eurasian skylark"
-      },
-      {
-        "id": 5,
-        "name": "Oriole",
-        "full_name": "Baltimore oriole"
-      },
-      {
-        "id": 6,
-        "name": "Chaffinch",
-        "full_name": "Common chaffinch"
-      }
-    ]
+     "id":5,
+     "name":"Songbirds",
+     "birds":[
+        {
+           "id":1,
+           "name":{
+              "common":"Canary",
+              "full":"Domestic canary",
+              "scientific":"Serinus canaria"
+           }
+        },
+        {
+           "id":2,
+           "name":{
+              "common":"Bluebird",
+              "full":"Eastern bluebird",
+              "scientific":"Sialia sialis"
+           }
+        },
+        {
+           "id":3,
+           "name":{
+              "common":"Thrush",
+              "full":"Song thrush",
+              "scientific":"Turdus philomelos"
+           }
+        },
+        {
+           "id":4,
+           "name":{
+              "common":"Skylark",
+              "full":"Eurasian skylark",
+              "scientific":"Alauda arvensis"
+           }
+        },
+        {
+           "id":5,
+           "name":{
+              "common":"Oriole",
+              "full":"Baltimore oriole",
+              "scientific":"Icterus galbula"
+           }
+        },
+        {
+           "id":6,
+           "name":{
+              "common":"Chaffinch",
+              "full":"Common chaffinch",
+              "scientific":"Fringilla coelebs"
+           }
+        }
+     ]
   },
   {
-    "id": 6,
-    "name": "exotic",
-    "birds": [
-      {
-        "id": 1,
-        "name": "Toucan",
-        "full_name": "Toco toucan"
-      },
-      {
-        "id": 2,
-        "name": "Lorikeet",
-        "full_name": "Rainbow lorikeet"
-      },
-      {
-        "id": 3,
-        "name": "Cockatoo",
-        "full_name": "White cockatoo"
-      },
-      {
-        "id": 4,
-        "name": "Peacock",
-        "full_name": "Indian peafowl"
-      },
-      {
-        "id": 5,
-        "name": "Ostrich",
-        "full_name": "Common ostrich"
-      },
-      {
-        "id": 6,
-        "name": "Hummingbird",
-        "full_name": "Hummingbird"
-      }
-    ]
+     "id":6,
+     "name":"Exotic Birds",
+     "birds":[
+        {
+           "id":1,
+           "name":{
+              "common":"Toucan",
+              "full":"Toco toucan",
+              "scientific":"Ramphastos toco"
+           }
+        },
+        {
+           "id":2,
+           "name":{
+              "common":"Lorikeet",
+              "full":"Rainbow lorikeet",
+              "scientific":"Trichoglossus moluccanus"
+           }
+        },
+        {
+           "id":3,
+           "name":{
+              "common":"Cockatoo",
+              "full":"White cockatoo",
+              "scientific":"Cacatua alba"
+           }
+        },
+        {
+           "id":4,
+           "name":{
+              "common":"Peacock",
+              "full":"Indian peafowl",
+              "scientific":"Pavo cristatus"
+           }
+        },
+        {
+           "id":5,
+           "name":{
+              "common":"Ostrich",
+              "full":"Common ostrich",
+              "scientific":"Struthio camelus"
+           }
+        },
+        {
+           "id":6,
+           "name":{
+              "common":"Hummingbird",
+              "full":"Bee hummingbird",
+              "scientific":"Mellisuga helenae"
+           }
+        }
+     ]
   }
 ]

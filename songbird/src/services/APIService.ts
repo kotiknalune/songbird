@@ -9,33 +9,34 @@ export default class APIService {
         return data;
     }
 
-    async getDescription(item : string) { // full name
+    async getDescription(item : string) {
         const data = await this.getInformation(`${config.wikipedia}${item}`);
-        console.log(data); // extract or extract_html
+        return data.extract;
     }
 
-    async getAudio(item : string) { // full name
+    async getAudio(item : string) {
         const query = item.toLowerCase().split(' ').join('+');
         const url = `${config.xeno_canto.url}${query}+q:${config.xeno_canto.quality}`;
 
         const data = await this.getInformation(`${url}`);
-        console.log(data); // recordings.file (or url?)
+        // console.log(data.recordings);
+        return data.recordings[0].file;
     }
 
     async getImage(item : string) {
-        const data = await this.getInformation(`${config.pexels.images}${item.toLowerCase()}`, config.pexels.specs );
-        return data.photos[0].src.large;
+        const data = await this.getInformation(`${config.wikipedia}${item}`);
+        return data.originalimage.source;
     }
 
     async getVideo(item : string) {
-        let data = await this.getInformation(`${config.pexels.video}${item.toLowerCase()}`);
-        if (data.total_results !== 0) return data.videos.video_files[0].link; 
+        let data = await this.getInformation(`${config.pexels.video}${item.toLowerCase()}`, config.pexels.specs );
+        if (data && data.total_results !== 0) return data.videos[0].video_files[0].link; 
 
         data = await this.getInformation(`${config.youtube}${item.toLowerCase()},bird`);
-        console.log(data);
+        return data;
     }
 
-    getLink(item : string) { // full name
+    getLink(item : string) {
         const query = capitalizeString(item).split(' ').join('_');
         const url = `${config.allaboutbirds}${query}`;
         return url;

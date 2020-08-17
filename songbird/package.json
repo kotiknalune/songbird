@@ -38,5 +38,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/http-proxy-middleware": "^0.19.3"
+  }
 }

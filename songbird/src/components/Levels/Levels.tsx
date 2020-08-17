@@ -1,68 +1,47 @@
 import React, { Component } from 'react';
 import './Levels.sass';
 
+import QUIZ_DATA from '../../context/quizData.json';
+
 type levelItemProps = {
   level: number,
   selected?: boolean,
 }
 
 type levelsProps = {
-  levels: number
-}
-
-type levelsState = {
-  activeLevel: number
+  levels: number,
+  currentLevel: number
 }
 
 class LevelItem extends Component<levelItemProps> {
-  // onItemHover = (event: { target: {} }) => {
-  //   const target : {} = event.target;
-  //   console.log(target);
-  // };
-
-  // onMouseEnter = { this.onItemHover } 
- 
   render() {
     const {level} = this.props;
     return (<span>{ level + 1 }</span>);
   }
 };
 
-export default class Levels extends Component<levelsProps, levelsState> {
-  state = {
-    activeLevel: 1
-  }
-
-  //this.setState({ activeLevel++ });
-
+export default class Levels extends Component<levelsProps> {
   render(){
-    const {levels} = this.props;
-    const { activeLevel } = this.state;
+    const { levels, currentLevel} = this.props;
     
     const levelElements = [...Array(levels).keys()].map((index) => { 
       const lvl: number = index + 1;
-      let dividerClassName: string = '';
+     
       let itemClassName: string = 'level-list__item';
+      if (currentLevel + 1 === lvl) itemClassName += ' active ';
 
-      if (activeLevel === lvl) {
-        dividerClassName += ' active ';
-        itemClassName += ' active ';
-      }
-
-      dividerClassName += (lvl === levels) ? 'none' : 'level-divider';
-        
       return (
         <li key = {`lvl-${index}`} className = { itemClassName }>
           <LevelItem level = {index} />
-          <div className = {dividerClassName}></div>
         </li>);
     });
     
     return(
-      <div>
+      <div className = 'level-container'>
         <ul className = 'level-list'>
           { levelElements }
         </ul>
+        <h2 className = 'level-name'>{ QUIZ_DATA[currentLevel].name }</h2>
       </div>
     );
     

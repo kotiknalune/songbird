@@ -1,40 +1,40 @@
 .level-list
-    list-style: none
-    display: flex
-    justify-content: space-between
-    margin: 0
-    padding: 0
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
     
     & .level-list__item
-        height: 40px
-        width: 40px
-        border-radius: 50%
-        margin: 10px
-        cursor: pointer
-        z-index: 2
-        background: transparent
-        border: 2px solid white
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        margin: 10px;
+        cursor: pointer;
+        z-index: 2;
+        background: transparent;
+        border: 4px solid white;
 
         &.active
-            background: #00e2ff70
-            border: 2px solid #00e2ff
+            border: 5px solid #3F51B5;
 
         & span
             display: block
-            font-size: 20px
-            line-height: 40px
+            font-size: 16px
+            line-height: 30px
             text-align: center
 
-.level-divider
-    position: relative
-    height: 2px
-    background: white
-    width: 347%
-    left: 100%
-    top: -50%
+.level-container
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
-    &.active
-        background: linear-gradient(90deg, #00e2ff, #ffffff);
-        box-shadow: 0px 0px 10px #01fdfd;
-
-
+.level-name
+    font-size: 45px;
+    font-family: 'Damion', sans-serif;
+    background: #3f51b5;
+    height: 13px;
+    line-height: 14px;
+    width: 25%;
+    text-align: right;

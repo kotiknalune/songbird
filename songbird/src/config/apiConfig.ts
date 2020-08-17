@@ -3,7 +3,6 @@ const pexelsAPIKey : string = '563492ad6f9170000100000157115f143c014a38bc27aedba
 
 const pexelHeader = new Headers();
 pexelHeader.append("Authorization", pexelsAPIKey);
-// pexelHeader.append("Cookie", "__cfduid=de180ffa3bd72bc2f597f24467fcce1001596194647");
 
 export const apiConfig = {
     pexels: {
