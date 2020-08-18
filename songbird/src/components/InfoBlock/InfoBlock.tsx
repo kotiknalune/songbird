@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { appConfig as config, quizProps} from '../../config/appConfig';
+import { quizProps } from '../../config/appConfig';
 
 import './InfoBlock.sass';
 
@@ -9,12 +9,11 @@ import Photo from '../Photo/Photo';
 export default class Info extends Component<quizProps> {
     render() {
         const { summary, audio, image, answer, link, video, hasAnswered } = this.props;
-        const { classes } = config;
         const voidLink = '#';
 
         return (
             <div className = 'container info-container'>
-                <Photo url = { image } type = { classes.photo.size.l } showContent = { hasAnswered }/>
+                <Photo url = { image } type = { 'large' } showContent = { hasAnswered }/>
                 <div className = 'question__info'>
                     <div className = 'info__text'>
                         <h2>{ hasAnswered ? answer?.name.common : '***********' }</h2>
@@ -31,7 +30,7 @@ export default class Info extends Component<quizProps> {
                 </div>
                 <div id='open-modal' className='modal-window'>
                     <div>
-                        <iframe title = 'Bird Video' src = { video? video : '' }></iframe>
+                        <video controls title = 'Bird Video' src = { video? video : '' }></video>
                         <a href='#' title='Close' className='modal-close'>X</a>
                     </div>
                 </div>

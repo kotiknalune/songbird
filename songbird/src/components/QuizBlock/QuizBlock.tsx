@@ -1,31 +1,56 @@
 import React, { Component } from 'react';
 import './QuizBlock.sass';
-import { quizState } from '../../context/quizState';
+import { appConfig } from '../../config/appConfig';
+import { count } from 'console';
 
 type quizVariantsProps = { 
     currentLevel: number,
     correctAnswer: string,
-    levelData: any
+    levelData: any,
+    levelScore: any
 }
 
-class QuizItem extends Component<{data: string, correctAnswer: string}> {
-    answerIndicator = React.createRef<HTMLSpanElement>();
-    state = { indicatorClass: '' }
+interface quizItemProps {
+    data: string, 
+    correctAnswer: string, 
+    onAnswered: any
+}
 
+let triesCounter = 0;
+
+class QuizItem extends Component<quizItemProps, { indicatorClass: string, count: number }> {
+    answerIndicator = React.createRef<HTMLSpanElement>();
+
+    constructor(props: quizItemProps){
+        super(props);
+        this.state = { 
+            indicatorClass: '',
+            count: 0
+        }
+    }
+ 
     componentWillReceiveProps() {
         if (this.state.indicatorClass !== '') this.setState({ indicatorClass: '' })
+        triesCounter = 0;
     }
     
     checkAnswer(e: any) {
         e.preventDefault();
+
         let indicator = (e.target.dataset.item === this.props.correctAnswer) ? 'correct' : 'incorrect';
         this.setState({ indicatorClass: indicator}, () => { this.playSoundEffect(indicator); }); 
 
-        if (indicator === 'correct') quizState.hasAnswered = true;   
+        if (indicator === 'incorrect') triesCounter++;
+        if (indicator === 'correct') this.props.onAnswered(this.calculateLevelScore());
     }
 
+    calculateLevelScore = () => {
+        const maxLevelScore = appConfig.levelScore;
+        return maxLevelScore - triesCounter;
+    }
+ 
     playSoundEffect(state: string) {
-        const src = `sfx/${state}.wav`;
+        const src = `./sfx/${state}.wav`;
         const soundEffect = new Audio(src);
         const playPromise = soundEffect.play();
 
@@ -36,13 +61,13 @@ class QuizItem extends Component<{data: string, correctAnswer: string}> {
 
     render() {  
         const { indicatorClass } = this.state;
-
+        
         let resultClass = '';
         resultClass = (indicatorClass) ? 'disabled' : resultClass;
         resultClass = (indicatorClass === 'correct') ? 'correct-disabled' : resultClass;
 
         return (
-            <li onClick = {(e) => {this.checkAnswer(e)}} data-item = { this.props.data } className = { resultClass }>
+            <li onClick = {(e) => { this.checkAnswer(e) }} data-item = { this.props.data } className = { resultClass }>
                 <span className = { `list__indicator ${indicatorClass}` } ref = { this.answerIndicator }></span>
                 <span className = 'list__text' data-item = { this.props.data }>{ this.props.data }</span>
             </li>
@@ -51,16 +76,29 @@ class QuizItem extends Component<{data: string, correctAnswer: string}> {
   };
 
 export default class QuizBlock extends Component<quizVariantsProps> {
+    state = { buttonsBlocked: false }
+
+    handleAnsweredLevel = (score : number) => {
+        this.setState({ buttonsBlocked: true });
+        this.props.levelScore(score);
+    }
+
+    componentWillReceiveProps() {
+        if (this.state.buttonsBlocked) this.setState({ buttonsBlocked: false })
+    }
+
     render() {
         const { levelData, correctAnswer } = this.props;
         const quizElements = [...levelData].map((index) => { 
             return (
-                <QuizItem data = { index.name.common } correctAnswer = {correctAnswer} key = {`item-${index.id}`} />
+                <QuizItem data = { index.name.common } correctAnswer = {correctAnswer} key = {`item-${index.id}`} onAnswered = { this.handleAnsweredLevel } />
             )
         });
+
+        const listClassName = 'quiz-block__list';
         return (
             <div className = 'container quiz-block' >
-                <ul className = {'quiz-block__list'}>
+                <ul className = {(this.state.buttonsBlocked) ? `${listClassName} disable-buttons` : listClassName }>
                     { quizElements }
                 </ul>
             </div>

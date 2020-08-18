@@ -18,7 +18,8 @@ const DEFAULT_SOURCE = '#';
 
 interface mainProps {
     currentLevel: number,
-    onChange: any
+    onChange: any,
+    addScore: any
 }
 
 export default class Main extends Component<mainProps> {
@@ -118,6 +119,10 @@ export default class Main extends Component<mainProps> {
         }
     }
 
+    handleScore = (score: number) => {
+        this.props.addScore(score);
+    }
+
     render() {
         const { answer, summary, link, image, audio, video, currentLevel, hasAnswered, isLoading } = this.state;
 
@@ -130,7 +135,7 @@ export default class Main extends Component<mainProps> {
                     image = {image} 
                     audio = {audio} 
                     answer = {answer}/>
-                <QuizBlock currentLevel = { currentLevel } levelData = { QUIZ_DATA[currentLevel - 1].birds } correctAnswer = { answer?.name.common }/>
+                <QuizBlock currentLevel = { currentLevel } levelData = { QUIZ_DATA[currentLevel - 1].birds } correctAnswer = { answer?.name.common } levelScore = { this.handleScore } />
                 <InfoBlock 
                     isLoading = { isLoading }
                     hasAnswered = {hasAnswered }

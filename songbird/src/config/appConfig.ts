@@ -1,17 +1,12 @@
+import QUIZ_DATA from '../context/quizData.json'
+
+const INIT = 1;
+
 export const appConfig = {
-    levels: 6,
-    initLevel: 1,
-    classes: {
-        default_container: 'container',
-        question_block: 'question-block',
-        photo: {
-            name: 'photo',
-            size: {
-                s: 'small',
-                l: 'large'
-            }
-        }
-    }
+    levels: QUIZ_DATA.length,
+    initLevel: INIT,
+    maxScore: QUIZ_DATA.length * (QUIZ_DATA[INIT].birds.length - INIT),
+    levelScore: QUIZ_DATA[INIT].birds.length - INIT
 }
 
 export interface itemNamesProps  {
