@@ -18,8 +18,7 @@ export default class AudioPlayer extends Component<audioProps> {
   }
 
     render() {
-        const { audio } = this.props;
-        const itemAudio = new Audio(audio);
+        // const { audio } = this.props;
 
         return (
             <div className = {`audio-player ${(this.props.showContent == null) ? '' : 'none'}`}>

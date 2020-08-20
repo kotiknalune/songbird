@@ -10,14 +10,16 @@ export default class Info extends Component<quizProps> {
     render() {
         const { summary, audio, image, answer, link, video, hasAnswered } = this.props;
         const voidLink = '#';
+        const filler = '***********';
 
         return (
             <div className = 'container info-container'>
                 <Photo url = { image } type = { 'large' } showContent = { hasAnswered }/>
                 <div className = 'question__info'>
                     <div className = 'info__text'>
-                        <h2>{ hasAnswered ? answer?.name.common : '***********' }</h2>
-                        <h3>{ hasAnswered ? `${ answer?.name.full } (${ answer?.name.scientific })` : '***********'}</h3>
+                        <h2>{ hasAnswered ? answer?.name.common : filler }</h2>
+                        <h3>{ hasAnswered ? `${ answer?.name.full }` : filler }</h3>
+                        <h3>{ hasAnswered ? `(${ answer?.name.scientific })` : filler }</h3>
                     </div>
                     <AudioPlayer audio = { audio }  showContent = { hasAnswered } />
                     <div className = {`info__buttons ${(hasAnswered)? '': 'none'}`}>

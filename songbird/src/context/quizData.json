@@ -23,8 +23,8 @@
            "id":3,
            "name":{
               "common":"Pigeon",
-              "full":"Rock pigeon",
-              "scientific":"Columba livia"
+              "full":"Yellow-eyed Pigeon",
+              "scientific":"Columba eversmanni"
            }
         },
         {
@@ -39,16 +39,16 @@
            "id":5,
            "name":{
               "common":"Magpie",
-              "full":"Eurasian magpie",
-              "scientific":"Pica pica"
+              "full":"Black-billed Magpie",
+              "scientific":"Pica hudsonia"
            }
         },
         {
            "id":6,
            "name":{
-              "common":"Tit",
-              "full":"Great tit",
-              "scientific":"Parus major"
+              "common":"Titmouse",
+              "full":"Tufted Titmouse",
+              "scientific":"Baeolophus bicolor"
            }
         }
      ]

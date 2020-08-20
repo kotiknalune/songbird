@@ -9,6 +9,64 @@ export const appConfig = {
     levelScore: QUIZ_DATA[INIT].birds.length - INIT
 }
 
+export const quizResults = [
+    {
+        id: 1,
+        title: 'Guru of Ornithology',
+        range: {
+            max: appConfig.maxScore,
+            min: appConfig.maxScore
+        },
+        summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et orci massa. Sed vel sollicitudin nibh, 
+        at vestibulum erat. Vestibulum auctor auctor mauris euismod tempus. Donec et bibendum leo. Maecenas id est neque. 
+        Donec eget augue sit amet est imperdiet posuere sit amet non orci`
+    },
+    {
+        id: 2,
+        title: 'Avian Master',
+        range: {
+            max: 29,
+            min: 21
+        },
+        summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et orci massa. Sed vel sollicitudin nibh, 
+        at vestibulum erat. Vestibulum auctor auctor mauris euismod tempus. Donec et bibendum leo. Maecenas id est neque. 
+        Donec eget augue sit amet est imperdiet posuere sit amet non orci`
+    },
+    {
+        id: 3,
+        title: 'Avid Birdwatcher',
+        range: {
+            max: 20,
+            min: 14
+        },
+        summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et orci massa. Sed vel sollicitudin nibh, 
+        at vestibulum erat. Vestibulum auctor auctor mauris euismod tempus. Donec et bibendum leo. Maecenas id est neque. 
+        Donec eget augue sit amet est imperdiet posuere sit amet non orci`
+    },
+    {
+        id: 4,
+        title: 'Beginner Birder',
+        range: {
+            max: 13,
+            min: 7
+        },
+        summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et orci massa. Sed vel sollicitudin nibh, 
+        at vestibulum erat. Vestibulum auctor auctor mauris euismod tempus. Donec et bibendum leo. Maecenas id est neque. 
+        Donec eget augue sit amet est imperdiet posuere sit amet non orci`
+    },
+    {
+        id: 5,
+        title: 'Hopeless Citizen',
+        range: {
+            max: 6,
+            min: 0
+        },
+        summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et orci massa. Sed vel sollicitudin nibh, 
+        at vestibulum erat. Vestibulum auctor auctor mauris euismod tempus. Donec et bibendum leo. Maecenas id est neque. 
+        Donec eget augue sit amet est imperdiet posuere sit amet non orci`
+    }
+]
+
 export interface itemNamesProps  {
     common: string,
     full: string,

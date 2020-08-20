@@ -16,7 +16,7 @@ export default class Modal extends React.Component<modalInterface, {}> {
         if (!this.props.show) return null
         return (
             <div className = 'start-game'>
-                <img src = '/default_bird.png'></img>
+                <img src = '/default_bird.png' alt = 'Bird'></img>
                 <h1 className = 'start-game__title'>Songbird</h1>
                 <button className = 'start-game__play-button' onClick = { this.hideModal }>Play</button>
             </div>

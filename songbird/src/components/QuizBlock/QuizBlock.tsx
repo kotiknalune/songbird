@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './QuizBlock.sass';
 import { appConfig } from '../../config/appConfig';
-import { count } from 'console';
 
 type quizVariantsProps = { 
     currentLevel: number,

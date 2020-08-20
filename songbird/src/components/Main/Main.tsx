@@ -10,7 +10,7 @@ import Button from '../Button/Button';
 
 import APIService from '../../services/APIService';
 
-import { appConfig } from '../../config/appConfig';
+import { appConfig, quizItemProps, itemNamesProps } from '../../config/appConfig';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { pickRandomCorrectAnswer } from '../../utilities/dataManager';
 
@@ -19,6 +19,7 @@ const DEFAULT_SOURCE = '#';
 interface mainProps {
     currentLevel: number,
     onChange: any,
+    onFinish: any,
     addScore: any
 }
 
@@ -29,7 +30,7 @@ export default class Main extends Component<mainProps> {
         isLoading: true,
         hasError: false,
         errorType: null,
-        hasAnswered: true,
+        hasAnswered: false,
         answer: pickRandomCorrectAnswer(this.props.currentLevel),
         summary: null,
         link: undefined,
@@ -58,9 +59,7 @@ export default class Main extends Component<mainProps> {
         });
     }
 
-    getQuizData() {
-        const { name } = this.state.answer;
-
+    getQuizData(name: itemNamesProps) {
         const quizImage = this.apiService.getImage(name.full);
         const quizAudio = this.apiService.getAudio(name.full);
         const quizVideo = this.apiService.getVideo(name.common);
@@ -81,7 +80,7 @@ export default class Main extends Component<mainProps> {
             4: 'link'
         };
 
-        Promise.allSettled(this.getQuizData())
+        Promise.allSettled(this.getQuizData(this.state.answer.name))
             .then(results => {
                 results.forEach((result, index) => {
                     if (result.status === 'fulfilled') {
@@ -105,22 +104,29 @@ export default class Main extends Component<mainProps> {
 
     nextLevel = () => {
         const { currentLevel } = this.state;
+        const { onChange, onFinish } = this.props; 
 
         if (currentLevel < appConfig.levels) {
             const nextLevel = currentLevel + 1;
             const newAnswer = pickRandomCorrectAnswer(nextLevel);
     
             this.setState({
+                hasAnswered: false,
                 currentLevel: nextLevel,
                 answer: newAnswer
-            }); 
-
-            this.props.onChange();
-        }
+            }, () => { 
+                this.updateQuiz();
+                console.log(`Correct answer for Level ${this.state.currentLevel}: ${this.state.answer.name.common}`);
+             }); 
+            onChange();
+        } else onFinish();
     }
 
     handleScore = (score: number) => {
         this.props.addScore(score);
+        this.setState({
+            hasAnswered: true
+        })
     }
 
     render() {
@@ -134,8 +140,14 @@ export default class Main extends Component<mainProps> {
                     hasAnswered = { hasAnswered }
                     image = {image} 
                     audio = {audio} 
-                    answer = {answer}/>
-                <QuizBlock currentLevel = { currentLevel } levelData = { QUIZ_DATA[currentLevel - 1].birds } correctAnswer = { answer?.name.common } levelScore = { this.handleScore } />
+                    answer = {answer}
+                />
+                <QuizBlock 
+                    currentLevel = { currentLevel } 
+                    levelData = { QUIZ_DATA[currentLevel - 1].birds } 
+                    correctAnswer = { answer?.name.common } 
+                    levelScore = { this.handleScore } 
+                />
                 <InfoBlock 
                     isLoading = { isLoading }
                     hasAnswered = {hasAnswered }
@@ -144,8 +156,13 @@ export default class Main extends Component<mainProps> {
                     audio = {audio} 
                     video = {video}
                     image = {image} 
-                    answer = {answer} />
-                <Button hasAnswered = { hasAnswered } loadNextLevel = { this.nextLevel } />
+                    answer = {answer} 
+                />
+                <Button 
+                    hasAnswered = { hasAnswered } 
+                    loadNextLevel = { this.nextLevel }
+                    currentLevel = { currentLevel } 
+                />
             </div>
         )
     }
