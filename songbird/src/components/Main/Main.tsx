@@ -31,6 +31,7 @@ export default class Main extends Component<mainProps> {
         hasError: false,
         errorType: null,
         hasAnswered: false,
+        showInfo: false,
         answer: pickRandomCorrectAnswer(this.props.currentLevel),
         summary: null,
         link: undefined,
@@ -61,8 +62,8 @@ export default class Main extends Component<mainProps> {
 
     getQuizData(name: itemNamesProps) {
         const quizImage = this.apiService.getImage(name.full);
-        const quizAudio = this.apiService.getAudio(name.full);
-        const quizVideo = this.apiService.getVideo(name.common);
+        const quizAudio = this.apiService.getAudio(name.scientific);
+        const quizVideo = this.apiService.getVideo(name.scientific);
         const quizSummary = this.apiService.getDescription(name.full);
         const quizLink = this.apiService.getLink(name.full);
 
@@ -102,6 +103,13 @@ export default class Main extends Component<mainProps> {
             });
     }
 
+    showInfo = () => {
+        console.log('SHOW INFO');
+        this.setState({
+            showInfo: true
+        });
+    }
+
     nextLevel = () => {
         const { currentLevel } = this.state;
         const { onChange, onFinish } = this.props; 
@@ -130,7 +138,7 @@ export default class Main extends Component<mainProps> {
     }
 
     render() {
-        const { answer, summary, link, image, audio, video, currentLevel, hasAnswered, isLoading } = this.state;
+        const { answer, summary, link, image, audio, video, currentLevel, hasAnswered, isLoading, showInfo } = this.state;
 
         return (
             <div className = 'main'>
@@ -146,11 +154,13 @@ export default class Main extends Component<mainProps> {
                     currentLevel = { currentLevel } 
                     levelData = { QUIZ_DATA[currentLevel - 1].birds } 
                     correctAnswer = { answer?.name.common } 
-                    levelScore = { this.handleScore } 
+                    levelScore = { this.handleScore }
+                    showInfo = { this.showInfo }
                 />
                 <InfoBlock 
                     isLoading = { isLoading }
                     hasAnswered = {hasAnswered }
+                    showInfo = { showInfo }
                     summary = {summary} 
                     link = {link} 
                     audio = {audio} 

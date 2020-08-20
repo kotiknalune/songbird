@@ -4,7 +4,7 @@ import './Photo.sass'
 import defaultPhoto from './default_bird.png'
 
 interface photoProps {
-    showContent: boolean
+    showContent?: boolean
     url : string | null,
     type: string
 }

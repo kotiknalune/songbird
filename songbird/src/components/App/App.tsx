@@ -13,7 +13,7 @@ export default class App extends Component {
     currentScore: 0,
     maxLevelScore: config.levels,
     currentLevel: config.initLevel,
-    showStartGame: false,
+    showStartGame: true,
     showFinishGame: false
   }
 
@@ -36,9 +36,14 @@ export default class App extends Component {
   }
 
   closeStartGame = () => {
+    this.loadData();
     this.setState({
       showStartGame: !this.state.showStartGame
     });
+  }
+
+  loadData() {
+    console.log('loading quiz data...');
   }
 
   toggleFinishScreen = () => {

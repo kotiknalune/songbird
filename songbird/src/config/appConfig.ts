@@ -81,6 +81,7 @@ export interface quizItemProps {
 export interface quizProps {
     isLoading: boolean,
     hasAnswered: boolean,
+    showInfo?: boolean,
     answer: quizItemProps,
     summary?: string | null,
     link?: string | undefined,

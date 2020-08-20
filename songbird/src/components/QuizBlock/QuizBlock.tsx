@@ -6,13 +6,15 @@ type quizVariantsProps = {
     currentLevel: number,
     correctAnswer: string,
     levelData: any,
-    levelScore: any
+    levelScore: any,
+    showInfo: any
 }
 
 interface quizItemProps {
     data: string, 
     correctAnswer: string, 
-    onAnswered: any
+    onAnswered: any,
+    onIncorrect: any
 }
 
 let triesCounter = 0;
@@ -39,7 +41,10 @@ class QuizItem extends Component<quizItemProps, { indicatorClass: string, count:
         let indicator = (e.target.dataset.item === this.props.correctAnswer) ? 'correct' : 'incorrect';
         this.setState({ indicatorClass: indicator}, () => { this.playSoundEffect(indicator); }); 
 
-        if (indicator === 'incorrect') triesCounter++;
+        if (indicator === 'incorrect') {
+            triesCounter++;
+            this.props.onIncorrect();
+        }
         if (indicator === 'correct') this.props.onAnswered(this.calculateLevelScore());
     }
 
@@ -82,6 +87,10 @@ export default class QuizBlock extends Component<quizVariantsProps> {
         this.props.levelScore(score);
     }
 
+    handleUnansweredLevel = () => {
+        this.props.showInfo();
+    }
+
     componentWillReceiveProps() {
         if (this.state.buttonsBlocked) this.setState({ buttonsBlocked: false })
     }
@@ -90,7 +99,12 @@ export default class QuizBlock extends Component<quizVariantsProps> {
         const { levelData, correctAnswer } = this.props;
         const quizElements = [...levelData].map((index) => { 
             return (
-                <QuizItem data = { index.name.common } correctAnswer = {correctAnswer} key = {`item-${index.id}`} onAnswered = { this.handleAnsweredLevel } />
+                <QuizItem 
+                    data = { index.name.common } 
+                    correctAnswer = {correctAnswer} 
+                    key = {`item-${index.id}`} 
+                    onAnswered = { this.handleAnsweredLevel }
+                    onIncorrect = { this.handleUnansweredLevel } />
             )
         });
 

@@ -1,6 +1,8 @@
 import { apiConfig as config } from "../config/apiConfig";
 import { capitalizeString } from "../utilities/utils";
 
+const INIT = 0;
+
 export default class APIService {
     async getInformation(url : string) {
         const result = await fetch(url);
@@ -24,8 +26,7 @@ export default class APIService {
         const data = await this.getInformation(`${url}`);
         const recordings = data.recordings.filter((recording:any) => recording.q === quality.A || recording.q === quality.B || recording.q === quality.C);
 
-        console.log('AUDIO', recordings[0])
-        return recordings[0].file;
+        return recordings[INIT].file;
     }
 
     async getImage(item : string) {
@@ -37,9 +38,12 @@ export default class APIService {
     }
 
     async getVideo(item : string) {
-        const data = await this.getInformation(`${config.youtube}${item.toLowerCase()},bird`);
-        console.log('VIDEO', data)
-        return data;
+        const data = await this.getInformation(`${config.youtube}${item.toLowerCase()}`);
+        const urlTemplate = 'https://www.youtube.com/watch?v=';
+
+        console.log( `${ urlTemplate }${ data.items[INIT].id.videoId }`)
+
+        return `${ urlTemplate }${ data.items[INIT].id.videoId }`;
     }
 
     getLink(item : string) {

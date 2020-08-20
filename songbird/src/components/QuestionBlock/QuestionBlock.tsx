@@ -25,7 +25,7 @@ export default class QuestionBlock extends Component<quizProps> {
                     <h2>{ hasAnswered ? answer?.name.common : '***********' }</h2>
                     <h3>{ hasAnswered ? answer?.name.full : '***********'}</h3>
                 </div>
-                <AudioPlayer audio = { audio } />
+                <AudioPlayer audio = { audio } showContent = { true } />
             </div>
         )
     }

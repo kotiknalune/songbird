@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import './AudioPlayer.sass'
 
 interface audioProps {
@@ -16,38 +17,40 @@ export default class AudioPlayer extends Component<audioProps> {
     if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, '0')}`;
     return `${String(hours).padStart(2, '0')}:${minutes}:${String(seconds % 60).padStart(2, '0')}`;
   }
-
     render() {
-        // const { audio } = this.props;
-
-        return (
-            <div className = {`audio-player ${(this.props.showContent == null) ? '' : 'none'}`}>
-            <div className = 'timeline'>
-              <div className = 'progress'></div>
-            </div>
-            <div className = 'controls'>
-              <div className = 'play-container'>
-                <div className = 'toggle-play play'>
-              </div>
-              </div>
-              <div className = 'time'>
-                <div className = 'current'>0:00</div>
-                <div className = 'divider'>/</div>
-                <div className = 'length'>2:16</div>
-              </div>
-              <div className = 'volume-container'>
-                <div className = 'volume-button'>
-                  <div className = 'volume icono-volumeMedium'></div>
-                </div>
-                <div className = 'volume-slider'>
-                  <div className = 'volume-percentage'></div>
-                </div>
-              </div>
-            </div>
+        const { audio } = this.props;
+        return ( 
+            <div className = {`audio-player ${(this.props.showContent) ? '' : 'none'}`}>
+           <audio controls src = { audio }></audio>
           </div>
         )
     }
 }
+
+
+/* <div className = 'timeline'>
+<div className = 'progress'></div>
+</div>
+<div className = 'controls'>
+<div className = 'play-container'>
+  <div className = 'toggle-play play'>
+</div>
+</div>
+<div className = 'time'>
+  <div className = 'current'>0:00</div>
+  <div className = 'divider'>/</div>
+  <div className = 'length'>2:16</div>
+</div>
+<div className = 'volume-container'>
+  <div className = 'volume-button'>
+    <div className = 'volume icono-volumeMedium'></div>
+  </div>
+  <div className = 'volume-slider'>
+    <div className = 'volume-percentage'></div>
+  </div>
+</div>
+</div> */
+
 
 // const audioPlayer = document.querySelector('.audio-player');
 
